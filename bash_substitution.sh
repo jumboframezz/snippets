@@ -6,7 +6,7 @@
 
 
 ## Assign a value foo to the $USER variable if doesn’t already have one:
-    unset $var1
+    unset var1
     echo "${var1:=default_value}"
 
 
@@ -45,8 +45,10 @@ echo "${var1:4:2}"
 
 ## Get list of matching variable names
 var1="Bus"
+# shellcheck disable=SC2034
 var2="Car"
-var3="Train"
+# shellcheck disable=SC2034 
+var3="Train" 
 echo "${!var*}"
 
 
