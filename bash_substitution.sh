@@ -38,24 +38,24 @@
 
 
 ## Slicing as in python
-var1="0123456789"
-echo "${var1:4}"
-echo "${var1:4:2}"
+    var1="0123456789"
+    echo "${var1:4}"
+    echo "${var1:4:2}"
 
 
 ## Get list of matching variable names
-var1="Bus"
-# shellcheck disable=SC2034
-var2="Car"
-# shellcheck disable=SC2034 
-var3="Train" 
-echo "${!var*}"
+    var1="Bus"
+    # shellcheck disable=SC2034
+    var2="Car"
+    # shellcheck disable=SC2034 
+    var3="Train" 
+    echo "${!var*}"
 
 
 ## Convert to upper to lower case or vice versa
-name="lachezar"
-echo "${name^}"
-echo "${name^^}"
+    name="lachezar"
+    echo "${name^}"
+    echo "${name^^}"
 # Convert everything to lowercase
     dest="/HOME/Lucho/DaTA"
     echo "Actual path: ${dest,,}"

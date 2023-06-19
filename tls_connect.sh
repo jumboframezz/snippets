@@ -15,4 +15,24 @@ err_exit(){
 }
 
 tls_domain=$1
-openssl s_client -showcerts -servername "$tls_domain" -connect "$tls_domain":443 </dev/null
+tls_port=${2:-443}
+# openssl s_client -showcerts -servername "$tls_domain" -connect "$tls_domain:$tls_port"  </dev/null
+
+openssl s_client -showcerts -connect "$tls_domain:$tls_port" \
+     </dev/null 2>/dev/null \
+     | openssl x509 -outform PEM > /tmp/"$tls_domain".crt
+
+crt_data=$( openssl x509 -text -noout -in "/tmp/$tls_domain".crt )
+_echo "Certificate data" yellow
+
+echo "${crt_data[@]}" | grep 'Subject:' 
+echo "${crt_data[@]}" | grep 'Issuer:'
+echo "${crt_data[@]}" | grep 'Not Before:'
+echo "${crt_data[@]}" | grep ' Not After :'
+
+echo 
+set -x 
+rm -rf "/tmp/$tls_domain".crt
+set +x
+
+# placeholder
