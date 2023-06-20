@@ -5,7 +5,7 @@
     echo "Current user: $current_user"
 
 
-## Assign a value foo to the $USER variable if doesn’t already have one:
+## Assign a value foo to the $USER variable if doesn't already have one:
     unset var1
     echo "${var1:=default_value}"
 
@@ -62,7 +62,7 @@
 # Convert only first character to lowercase 
     src="HOME"
     echo "${src,}"
-# Only convert first character in $dest if it is a capital ‘H’:
+# Only convert first character in $dest if it is a capital "H":
     dest="Home"
     echo "${dest,H}"
     dest="Fhome"
