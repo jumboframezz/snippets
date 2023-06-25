@@ -1,8 +1,6 @@
 #!/bin/bash -e
 
 
-
-
 if [ -z "$1" ]
 then
       echo "You need to provide old version as 1st argument"
@@ -15,16 +13,11 @@ then
       exit 1
 fi
 
-
-
-
 #OLD_VER=2.8.9
 #NEW_VER=2.9.0
 
 OLD_VER=$1
 NEW_VER=$2
-
-
 
 wget https://github.com/netbox-community/netbox/archive/refs/tags/v$NEW_VER.tar.gz -O /root/v$NEW_VER.tar.gz
 
@@ -44,7 +37,6 @@ ln -s netbox-$NEW_VER netbox
 cat >> /opt/netbox/local_requirements.txt << EOF 
 django-auth-ldap
 EOF
-
 
 cd netbox-$NEW_VER
 ./upgrade.sh
