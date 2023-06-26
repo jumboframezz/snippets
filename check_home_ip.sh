@@ -14,6 +14,10 @@ current_ip=$(curl -s ifconfig.io) \
 
 if [[ $real_ip != "$current_ip" ]]; then 
     send_sms "$current_ip"
+    if [[ $current_ip == "Connectivity failed" ]]; then 
+        echo "Cannot get ip address"  \
+          | mail -s Error contact@lz1lgg.eu
+    fi      
 else
     [ $verbose -eq 1 ] && echo "IP $current_ip is ok"
     logger "Check IP: $current_ip all green"
