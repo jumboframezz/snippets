@@ -16,4 +16,5 @@ if [[ $real_ip != "$current_ip" ]]; then
     send_sms "$current_ip"
 else
     [ $verbose -eq 1 ] && echo "IP $current_ip is ok"
+    logger "Check IP: $current_ip all green"
 fi
