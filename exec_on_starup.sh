@@ -18,3 +18,5 @@ EOF
 
 systemctl daemon-reload
 systemctl enable $service_file
+
+#  restorecon -Fvvv $exec_command to set the context
