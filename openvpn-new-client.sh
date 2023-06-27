@@ -1,5 +1,5 @@
 #!/bin/bash
-# This generates new openvon client. Not tested 
+# This generates new openvon client. Not tested just for reference
 err_exit(){
     echo "$1" && exit "$2"
 }
