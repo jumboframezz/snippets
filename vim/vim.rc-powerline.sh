@@ -1,3 +1,4 @@
+#!/bin/bash
 # Set system-wide 
 cat>> /etc/vimrc << EOF
 " .yaml settings for vim"

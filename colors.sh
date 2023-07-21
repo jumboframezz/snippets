@@ -11,6 +11,19 @@ _echo() {
        echo -e "${colors[$2]}${1}${colors[no_color]}"
 }
 
+_echo_yes() {
+    echo -e "[${colors['green']}✓${colors[no_color]}]"
+}
+
+_echo_no(){
+    echo -e "[${colors['red']}✗${colors[no_color]}]"
+}
+
+
 for color in red green yellow blue magenta cyan bold light_red light_green light_yellow light_blue bold_green bold_white; do 
     _echo $color $color
 done
+
+
+# echo "[✓]"
+# echo "[✗]"
