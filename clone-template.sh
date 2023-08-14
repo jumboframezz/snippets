@@ -1,5 +1,5 @@
 #!/bin/bash +x
-
+# shellcheck disable=2086
 export LANGUAGE=en_US
 declare -A colors=(['red']='\e[31m' ['green']='\e[32m' ['yellow']='\e[33m' ['blue']='\e[34m' ['magenta']='\e[35m' ['cyan']='\e[36m' \
                 [bold]='\e[1m' ['no_color']='\033[0m')
@@ -45,8 +45,8 @@ declare -A vm_types=( \
                 [u16]='ubuntu18.04' [u20]='ubuntu20-template' [u22]='ubuntu22-template' \
                 [rhel]='rhel8.4-template' [rocky]='rocky8-template' [rocky_small]='rocky8_small-template' [rocky9]='rocky9-template' \
                 [debian]='debian-template' \
-				[debian12]='debian12-template' \
-                [suse]='suse-leap-template' \
+		[debian12]='debian12-template' \
+                [suse]='suse-leap-15.4-template' \
                 [freebsd]='FreeBSD-template' \
                 [alma8]='alma8-template' )
 
@@ -79,7 +79,7 @@ else
 fi
 
 _echo "virt-clone  --original $vmsource  --name $vmdst --file $dstdir/$vmdst.qcow2 $disk_line  #-mac RANDOM" yellow
-virt-clone  --original "$vmsource"  --name "$vmdst" --file "$dstdir/$vmdst.qcow2" "$disk_line"  #-mac RANDOM
+virt-clone  --original $vmsource  --name $vmdst --file $dstdir/$vmdst.qcow2   #-mac RANDOM
 echo -e "${colors["green"]}"
 virsh domblklist $vmdst
 echo -e "${colors["no_color"]}"
